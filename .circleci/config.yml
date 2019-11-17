@@ -7,9 +7,9 @@ jobs:
 
     steps:
       - checkout
-      - run: ls
-      - run: cd ./packages/cli
-      - run: ls
-      - run: sudo npm install -g npm@latest
-      - run: npm install
-      - run: npx ts-node src/bin/bundlecheck.ts
+      - run:
+          name: Bundlecheck
+          command: |
+            cd packages/cli
+            npm ci
+            npx ts-node src/bin/bundlecheck.ts
