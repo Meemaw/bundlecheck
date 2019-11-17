@@ -18,7 +18,8 @@
     "bundlecheck": "dist/bin/fas-utils.js"
   },
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "test:coverage": "jest --coverage"
   },
   "dependencies": {
     "@octokit/rest": "^16.35.0",
