@@ -28,11 +28,11 @@
     "jsonpack": "^1.1.5"
   },
   "devDependencies": {
+    "@types/bundlecheck": "^0.0.0-development",
     "@types/bytes": "^3.1.0",
     "@types/glob": "^7.1.1",
     "@types/jsonpack": "^1.1.0",
-    "@types/node": "^12.12.8",
-    "typescript": "^3.7.2"
+    "@types/node": "^12.12.8"
   },
   "bundlecheck": [
     {

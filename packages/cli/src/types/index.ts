@@ -4,13 +4,6 @@ export type FileConfig = {
   compression?: string;
 };
 
-export type ProcessedFile = {
-  maxSize: number;
-  size: number;
-  path: string;
-  compression: string;
-};
-
 type AnalyzedFile = {
   fail: boolean;
   message: string;

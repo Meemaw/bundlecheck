@@ -1,7 +1,8 @@
 import bytes from 'bytes';
+import { ProcessedFile } from 'bundlecheck';
 
 import logger from '../logger';
-import { ProcessedFile, AnalyzeResult } from '../types';
+import { AnalyzeResult } from '../types';
 
 export function analyzeFiles(processedFiles: ProcessedFile[]): AnalyzeResult {
   let totalSize = 0;

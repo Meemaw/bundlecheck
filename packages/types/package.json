@@ -1,0 +1,26 @@
+{
+  "name": "@types/bundlecheck",
+  "version": "0.0.0-development",
+  "description": "Sleep tight with your Javascript bundle in mind.",
+  "license": "MIT",
+  "author": "Meemaw <ematej.snuderl@gmail.com>",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "typings": "./dist/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Meemaw/bundlecheck"
+  },
+  "bugs": {
+    "url": "https://github.com/Meemaw/bundlecheck/issues"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "prepublishOnly": "tsc",
+    "test": "tsc --noEmit"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}
