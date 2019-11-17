@@ -28,6 +28,7 @@
     "jsonpack": "^1.1.5"
   },
   "devDependencies": {
+    "@types/bundlecheck": "^0.0.0-development",
     "@types/bytes": "^3.1.0",
     "@types/glob": "^7.1.1",
     "@types/jsonpack": "^1.1.0",

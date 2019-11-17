@@ -2,8 +2,9 @@ import fs from 'fs';
 import glob from 'glob';
 import bytes from 'bytes';
 import { brotliCompressSync, gzipSync } from 'zlib';
+import { ProcessedFile } from 'bundlecheck';
 
-import { FileConfig, ProcessedFile } from '../types';
+import { FileConfig } from '../types';
 
 function getCompressedSize(data: string, compression: string = 'none'): number {
   switch (compression) {

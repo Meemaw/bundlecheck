@@ -1,7 +1,8 @@
 import { pack as jsonpack } from 'jsonpack';
 import Octokit from '@octokit/rest';
+import { ProcessedFile } from 'bundlecheck';
 
-import { AnalyzeResult, ProcessedFile } from '../types';
+import { AnalyzeResult } from '../types';
 import { generateCheckOutput } from './output';
 import { getCIVariables } from '../ci';
 import logger from '../logger';
