@@ -17,7 +17,10 @@
   "bin": {
     "bundlecheck": "dist/bin/fas-utils.js"
   },
-  "scripts": {},
+  "scripts": {
+    "test": "jest",
+    "test:coverage": "jest --coverage"
+  },
   "dependencies": {
     "@octokit/rest": "^16.35.0",
     "bytes": "^3.1.0",
@@ -31,8 +34,13 @@
     "@types/bundlecheck": "^0.0.0-development",
     "@types/bytes": "^3.1.0",
     "@types/glob": "^7.1.1",
+    "@types/jest": "^24.0.23",
     "@types/jsonpack": "^1.1.0",
     "@types/node": "^12.12.8",
+    "@types/sinon": "^7.5.0",
+    "jest": "^24.9.0",
+    "sinon": "^7.5.0",
+    "ts-jest": "^24.1.0",
     "typescript": "^3.7.2"
   },
   "bundlecheck": [

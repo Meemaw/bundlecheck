@@ -7,16 +7,24 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@master
         with:
           fetch-depth: 1
-      - uses: actions/setup-node@v1
+      - uses: actions/setup-node@master
         with:
           node-version: '12.x'
-      - name: Bootstrap lerna
+      - name: Boostrap monorepo
         run: |
-          npx lerna bootstrap
-      - name: npm install, lint and unit test
+          npm install
+          npm run bootstrap
+      - name: Run unit tests
+        run: |
+          npm run test:coverage
+      - name: Upload test coverage to Codecov
+        uses: codecov/codecov-action@master
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+      - name: Run bundlecheck
         env:
           BUNDLECHECK_GITHUB_TOKEN: ${{ secrets.BUNDLECHECK_GITHUB_TOKEN }}
         working-directory: packages/cli
