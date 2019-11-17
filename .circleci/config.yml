@@ -6,7 +6,7 @@ jobs:
 
     steps:
       - checkout
-      - cd packages/cli
+      - run: cd packages/cli
       - restore_cache:
           key: v1-dependencies-{{ checksum "package-lock.json" }}
       - run: npm ci
