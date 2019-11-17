@@ -18,9 +18,11 @@
     "dist"
   ],
   "scripts": {
-    "prepublishOnly": "tsc",
+    "prepublish": "tsc",
     "test": "tsc --noEmit"
   },
   "dependencies": {},
-  "devDependencies": {}
+  "devDependencies": {
+    "typescript": "^3.7.2"
+  }
 }
