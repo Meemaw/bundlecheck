@@ -3,7 +3,7 @@ import Octokit from '@octokit/rest';
 
 import { AnalyzeResult, ProcessedFile } from '../types';
 import { generateCheckOutput } from './output';
-import { getCiVariables } from '../ci';
+import { getCIVariables } from '../ci';
 import logger from '../logger';
 
 const APP_NAME = 'bundlecheck';
@@ -24,7 +24,7 @@ export function report(processedFiles: ProcessedFile[], result: AnalyzeResult) {
     return;
   }
 
-  const { repo, owner, commitSHA } = getCiVariables();
+  const { repo, owner, commitSHA } = getCIVariables();
 
   return new Octokit({ auth: githubToken }).checks.create({
     owner,

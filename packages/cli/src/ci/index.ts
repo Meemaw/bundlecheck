@@ -7,7 +7,7 @@ export function isCI(ciProviders: CIProvider[] = CI_PROVIDERS): boolean {
   return Boolean(process.env.CI) || ciProviders.some(provider => provider.detect(process.env));
 }
 
-export function getCiVariables(ciProviders: CIProvider[] = CI_PROVIDERS): RequiredCIVariables {
+export function getCIVariables(ciProviders: CIProvider[] = CI_PROVIDERS): RequiredCIVariables {
   const provider = ciProviders.find(provider => provider.detect(process.env));
 
   if (!provider) {
