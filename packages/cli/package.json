@@ -18,13 +18,6 @@
     "bundlecheck": "dist/bin/fas-utils.js"
   },
   "scripts": {},
-  "devDependencies": {
-    "@types/bytes": "^3.1.0",
-    "@types/glob": "^7.1.1",
-    "@types/jsonpack": "^1.1.0",
-    "@types/node": "^12.12.8",
-    "typescript": "^3.7.2"
-  },
   "dependencies": {
     "bytes": "^3.1.0",
     "chalk": "^3.0.0",
@@ -32,5 +25,18 @@
     "cosmiconfig": "^6.0.0",
     "glob": "^7.1.6",
     "jsonpack": "^1.1.5"
-  }
+  },
+  "devDependencies": {
+    "@types/bytes": "^3.1.0",
+    "@types/glob": "^7.1.1",
+    "@types/jsonpack": "^1.1.0",
+    "@types/node": "^12.12.8",
+    "eslint": "^6.6.0",
+    "typescript": "^3.7.2"
+  },
+  "bundlecheck": [
+    {
+      "path": "src/**/*.ts"
+    }
+  ]
 }

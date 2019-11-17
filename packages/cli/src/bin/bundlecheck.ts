@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 
 import program from 'commander';
-import chalk from 'chalk';
 
 import { getConfig } from '../config';
 import { processFiles } from '../compress';
