@@ -13,10 +13,13 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: '12.x'
-      - name: Bootstrap lerna
+      - name: Install lerna
         run: |
-          npx lerna bootstrap
-      - name: npm install, lint and unit test
+          npm install
+      - name: Run unit tests
+        run: |
+          npm run test
+      - name: Run bundlecheck
         env:
           BUNDLECHECK_GITHUB_TOKEN: ${{ secrets.BUNDLECHECK_GITHUB_TOKEN }}
         working-directory: packages/cli
