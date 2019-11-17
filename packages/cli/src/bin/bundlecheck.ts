@@ -7,6 +7,7 @@ import { processFiles } from '../compress';
 import { analyzeFiles } from '../analyze';
 import { report } from '../reporter';
 import logger from '../logger';
+import { isCI } from '../ci';
 
 program.option('-c|--config [config]', 'Path to configuration file').parse(process.argv);
 
@@ -15,7 +16,7 @@ try {
   const processedFiles = processFiles(config);
   const analyzeResult = analyzeFiles(processedFiles);
 
-  if (process.env.CI) {
+  if (isCI()) {
     report(processedFiles, analyzeResult);
   }
 } catch (error) {
