@@ -16,7 +16,7 @@ jobs:
       - name: Boostrap monorepo
         run: |
           npm install
-          lerna bootstrap
+          npm run bootstrap
       - name: Run unit tests
         run: |
           npm run test
