@@ -1,8 +1,9 @@
 import githubProvider from './providers/github';
 import travisProvider from './providers/travis';
+import circleciProvider from './providers/circleci';
 import { CIProvider, RequiredCIVariables } from './types';
 
-const CI_PROVIDERS = [githubProvider, travisProvider];
+const CI_PROVIDERS = [githubProvider, travisProvider, circleciProvider];
 
 export function isCI(ciProviders: CIProvider[] = CI_PROVIDERS): boolean {
   return Boolean(process.env.CI) || ciProviders.some(provider => provider.detect(process.env));
