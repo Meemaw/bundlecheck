@@ -7,11 +7,5 @@ jobs:
     steps:
       - checkout
       - run: cd packages/cli
-      - restore_cache:
-          key: v1-dependencies-{{ checksum "package-lock.json" }}
       - run: npm ci
-      - save_cache:
-          paths:
-            - node_modules
-          key: v1-dependencies-{{ checksum "package-lock.json" }}
       - run: npx ts-node src/bin/bundlecheck.ts
