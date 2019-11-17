@@ -1,20 +1,19 @@
-version: 2.1
+version: 2
 jobs:
-  bundlecheck:
-    working_directory: packages/cli
+  build:
     docker:
-      - image: circleci/node:10.16.3
+      - image: circleci/node:7.10
+    working_directory: packages/cli
+
     steps:
       - checkout
       - restore_cache:
-        key: dependency-cache-{{ checksum "package-lock.json" }}
-      - run:
-        name: Install dependencies
-        command: npm ci
+          keys:
+            - v1-dependencies-{{ checksum "package-lock.json" }}
+            - v1-dependencies-
+      - run: npm ci
       - save_cache:
-        key: dependency-cache-{{ checksum "package-lock.json" }}
-        paths:
-          - ./node_modules
-      - run:
-        name: Run bundlecheck
-        command: npx ts-node src/bin/bundlecheck.ts --checkName bundlecheck-circleci
+          paths:
+            - node_modules
+          key: v1-dependencies-{{ checksum "package-lock.json" }}
+      - run: npx ts-node src/bin/bundlecheck.ts
