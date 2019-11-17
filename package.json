@@ -1,0 +1,10 @@
+{
+  "private": true,
+  "scripts": {
+    "lint": "lerna run --stream --concurrency 1 lint",
+    "test": "lerna run --stream --concurrency 1 --sort test"
+  },
+  "devDependencies": {
+    "lerna": "^3.18.4"
+  }
+}
