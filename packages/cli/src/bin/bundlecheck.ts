@@ -14,7 +14,10 @@ try {
   const config = getConfig({ configPath: program.config });
   const processedFiles = processFiles(config);
   const analyzeResult = analyzeFiles(processedFiles);
-  report(processedFiles, analyzeResult);
+
+  if (process.env.CI) {
+    report(processedFiles, analyzeResult);
+  }
 } catch (error) {
   logger.error(error.message);
   process.exit(1);

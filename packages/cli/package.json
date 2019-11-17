@@ -19,6 +19,7 @@
   },
   "scripts": {},
   "dependencies": {
+    "@octokit/rest": "^16.35.0",
     "bytes": "^3.1.0",
     "chalk": "^3.0.0",
     "commander": "^4.0.1",
@@ -31,12 +32,12 @@
     "@types/glob": "^7.1.1",
     "@types/jsonpack": "^1.1.0",
     "@types/node": "^12.12.8",
-    "eslint": "^6.6.0",
     "typescript": "^3.7.2"
   },
   "bundlecheck": [
     {
-      "path": "src/**/*.ts"
+      "path": "src/**/*.ts",
+      "maxSize": "1 kb"
     }
   ]
 }
