@@ -3,10 +3,10 @@ jobs:
   build:
     docker:
       - image: circleci/node:7.10
-    working_directory: packages/cli
 
     steps:
       - checkout
+      - cd packages/cli
       - restore_cache:
           key: v1-dependencies-{{ checksum "package-lock.json" }}
       - run: npm ci
