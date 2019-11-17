@@ -15,8 +15,7 @@ jobs:
           node-version: '12.x'
       - name: Bootstrap lerna
         run: |
-          npm install
-          lerna bootstrap
+          npx lerna bootstrap
       - name: npm install, lint and unit test
         env:
           BUNDLECHECK_GITHUB_TOKEN: ${{ secrets.BUNDLECHECK_GITHUB_TOKEN }}
