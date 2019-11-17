@@ -11,7 +11,12 @@ const pass = (messsage: string) => {
   stdout(chalk.green(`[PASS] ${messsage}`));
 };
 
+const warn = (message: string) => {
+  stdout(chalk.yellow(`[WARNING] ${message}`));
+};
+
 export default {
   error,
   pass,
+  warn,
 };

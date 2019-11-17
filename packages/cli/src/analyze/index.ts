@@ -6,6 +6,7 @@ import { ProcessedFile, AnalyzeResult } from '../types';
 export function analyzeFiles(processedFiles: ProcessedFile[]): AnalyzeResult {
   let totalSize = 0;
   let totalMaxSize = 0;
+  let failureCount = 0;
   let bundleFail = false;
 
   const analyzedFiles = processedFiles.map(processedFile => {
@@ -23,6 +24,7 @@ export function analyzeFiles(processedFiles: ProcessedFile[]): AnalyzeResult {
     if (size > maxSize) {
       bundleFail = true;
       fail = true;
+      failureCount += 1;
       message += `> maxSize ${prettyMaxSize} ${compressionText}`;
       logger.error(message);
     } else {
@@ -33,5 +35,5 @@ export function analyzeFiles(processedFiles: ProcessedFile[]): AnalyzeResult {
     return { fail, message };
   });
 
-  return { totalSize, totalMaxSize, bundleFail, files: analyzedFiles };
+  return { failureCount, totalSize, totalMaxSize, bundleFail, files: analyzedFiles };
 }

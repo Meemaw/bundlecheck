@@ -21,4 +21,5 @@ export type AnalyzeResult = {
   totalSize: number;
   totalMaxSize: number;
   bundleFail: boolean;
+  failureCount: number;
 };

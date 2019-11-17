@@ -16,7 +16,7 @@ export function getConfig({ configPath }: GetConfigOptions): FileConfig[] {
       throw new Error(`Custom config file does not exist. Make sure the path is relative to the project root.
         
     You can read about the configuration options here:
-    https://github.com/siddharthkp/bundlesize#configuration`);
+    https://github.com/Meemaw/bundlecheck#configuration`);
     }
     configPaths.push(configPath);
   } else {
@@ -30,7 +30,7 @@ export function getConfig({ configPath }: GetConfigOptions): FileConfig[] {
     throw new Error(`Config not found.
   
     You can read about the configuration options here:
-    https://github.com/siddharthkp/bundlesize#configuration`);
+    https://github.com/Meemaw/bundlecheck#configuration`);
   }
 
   if (path.parse(result.filepath).base === 'package.json') {
