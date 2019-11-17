@@ -37,7 +37,7 @@
   "bundlecheck": [
     {
       "path": "src/**/*.ts",
-      "maxSize": "1 kb"
+      "maxSize": "20 kb"
     }
   ]
 }
