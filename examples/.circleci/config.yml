@@ -10,6 +10,4 @@ jobs:
       - run:
           name: Bundlecheck
           command: |
-            cd packages/cli
-            npm ci
-            npx ts-node src/bin/bundlecheck.ts --checkName bundlecheck-circleci
+            npx ts-node src/bin/bundlecheck.ts
