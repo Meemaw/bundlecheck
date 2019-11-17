@@ -13,8 +13,8 @@ export function getCIVariables(ciProviders: CIProvider[] = CI_PROVIDERS): Requir
   if (!provider) {
     throw new Error(`Unrecognized CI Provider.
   
-  You can read about the configuration options here:
-  https://github.com/Meemaw/bundlecheck#configuration`);
+  You can read about the supported CI providers here:
+  https://github.com/Meemaw/bundlecheck#ci-providers`);
   }
 
   return provider.configuration(process.env);

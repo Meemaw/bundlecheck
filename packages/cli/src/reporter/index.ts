@@ -6,16 +6,26 @@ import { generateCheckOutput } from './output';
 import { getCIVariables } from '../ci';
 import logger from '../logger';
 
-const APP_NAME = 'bundlecheck';
-const BUNDLECHECK_BASE_URL = 'https://d37z1ewx4b4e2v.cloudfront.net';
+type ReportOptions = {
+  processedFiles: ProcessedFile[];
+  analyzeResult: AnalyzeResult;
+  githubToken: string;
+  checkName?: string;
+  bundlecheckBaseUrl?: string;
+};
 
-export function report(processedFiles: ProcessedFile[], result: AnalyzeResult) {
+export function report({
+  processedFiles,
+  analyzeResult,
+  githubToken,
+  checkName = 'bundlecheck',
+  bundlecheckBaseUrl = 'https://d37z1ewx4b4e2v.cloudfront.net',
+}: ReportOptions) {
   const infoPayload = jsonpack({ files: processedFiles });
-  const bundleInfoUrl = `${BUNDLECHECK_BASE_URL}/bundle?info=${encodeURIComponent(infoPayload)}`;
-  const conclusion = result.bundleFail ? 'failure' : 'success';
-  const checkOutput = generateCheckOutput(result, bundleInfoUrl);
+  const bundleInfoUrl = `${bundlecheckBaseUrl}/bundle?info=${encodeURIComponent(infoPayload)}`;
+  const conclusion = analyzeResult.bundleFail ? 'failure' : 'success';
+  const checkOutput = generateCheckOutput(analyzeResult, bundleInfoUrl);
 
-  const githubToken = process.env.BUNDLECHECK_GITHUB_TOKEN;
   if (!githubToken) {
     logger.warn(`CI environment detected but BUNDLECHECK_GITHUB_TOKEN is not defined.
 
@@ -29,7 +39,7 @@ export function report(processedFiles: ProcessedFile[], result: AnalyzeResult) {
   return new Octokit({ auth: githubToken }).checks.create({
     owner,
     repo,
-    name: APP_NAME,
+    name: checkName,
     head_sha: commitSHA,
     status: 'completed',
     conclusion,
