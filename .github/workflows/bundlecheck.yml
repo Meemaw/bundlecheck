@@ -14,6 +14,8 @@ jobs:
         with:
           node-version: '12.x'
       - name: npm install, lint and unit test
+        env:
+          BUNDLECHECK_GITHUB_TOKEN: ${{ secrets.BUNDLECHECK_GITHUB_TOKEN }}
         working-directory: packages/cli
         run: |
           npm ci
