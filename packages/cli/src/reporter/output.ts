@@ -36,6 +36,7 @@ export function generateCheckOutput(
   const markdownFailureSummary = markdownJoinLines([
     `${RED_CIRCLE} **FAIL**`,
     markdownTotalBundleSizeMessage,
+    '<h2 class="f6 text-normal text-uppercase text-gray-light mb-2">Details</h2>',
     markdownFileListSummary,
     markdownSeeDetailsMessage,
   ]);
