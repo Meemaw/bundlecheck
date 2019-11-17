@@ -27,6 +27,7 @@ export function generateCheckOutput(
       summary: markdownJoinLines([
         `${CHECKMARK} **PASS**`,
         markdownTotalBundleSizeMessage,
+        '<h2 class="f6 text-normal text-uppercase text-gray-light mb-2">Details</h2>',
         markdownFileListSummary,
         markdownSeeDetailsMessage,
       ]),
