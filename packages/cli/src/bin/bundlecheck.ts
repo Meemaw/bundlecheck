@@ -7,6 +7,7 @@ import { getConfig } from '../config';
 import { processFiles } from '../compress';
 import { analyzeFiles } from '../analyze';
 import { report } from '../reporter';
+import logger from '../logger';
 
 program.option('-c|--config [config]', 'Path to configuration file').parse(process.argv);
 
@@ -16,5 +17,6 @@ try {
   const analyzeResult = analyzeFiles(processedFiles);
   report(processedFiles, analyzeResult);
 } catch (error) {
-  console.error(chalk.red(error.message));
+  logger.error(error.message);
+  process.exit(1);
 }
