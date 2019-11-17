@@ -3,10 +3,11 @@ jobs:
   build:
     docker:
       - image: circleci/node:7.10
+    working_directory: ~/repo
 
     steps:
       - checkout
-      - run: sudo npm install -g npm@latest
       - run: cd packages/cli
+      - run: sudo npm install -g npm@latest
       - run: npm ci
       - run: npx ts-node src/bin/bundlecheck.ts
