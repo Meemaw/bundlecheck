@@ -1,7 +1,7 @@
 {
   "private": true,
   "scripts": {
-    "bootstrap": "lerna boostrap",
+    "bootstrap": "lerna bootstrap",
     "clean": "lerna run --stream --concurrency 1 clean",
     "lint": "lerna run --stream --concurrency 1 lint",
     "test": "lerna run --stream --concurrency 1 --sort test"
