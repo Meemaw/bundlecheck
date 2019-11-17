@@ -12,4 +12,4 @@ jobs:
           command: |
             cd packages/cli
             npm ci
-            npx ts-node src/bin/bundlecheck.ts --configName bundlecheck-circleci
+            npx ts-node src/bin/bundlecheck.ts --checkName bundlecheck-circleci
