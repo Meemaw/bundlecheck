@@ -9,5 +9,5 @@ jobs:
       - checkout
       - run: cd packages/cli
       - run: sudo npm install -g npm@latest
-      - run: npm ci
+      - run: npm install
       - run: npx ts-node src/bin/bundlecheck.ts
