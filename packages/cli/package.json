@@ -1,7 +1,7 @@
 {
   "name": "bundlecheck",
   "version": "0.0.0-development",
-  "description": "Keep your bundle size in check and sleep tight",
+  "description": "Sleep tight with your Javascript bundle in mind.",
   "license": "MIT",
   "author": "Meemaw <ematej.snuderl@gmail.com>",
   "repository": {

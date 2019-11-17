@@ -1,0 +1,20 @@
+name: bundlecheck
+on: [push]
+
+jobs:
+  bundlecheck:
+    name: Bundlecheck
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v1
+        with:
+          fetch-depth: 1
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '12.x'
+      - name: bundlecheck
+        env:
+          BUNDLECHECK_GITHUB_TOKEN: ${{ secrets.BUNDLECHECK_GITHUB_TOKEN }}
+        run: |
+          npx ts-node src/bin/bundlecheck.ts

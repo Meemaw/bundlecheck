@@ -1,7 +1,8 @@
 import githubProvider from './providers/github';
+import travisProvider from './providers/travis';
 import { CIProvider, RequiredCIVariables } from './types';
 
-const CI_PROVIDERS = [githubProvider];
+const CI_PROVIDERS = [githubProvider, travisProvider];
 
 export function isCI(ciProviders: CIProvider[] = CI_PROVIDERS): boolean {
   return Boolean(process.env.CI) || ciProviders.some(provider => provider.detect(process.env));
@@ -13,8 +14,8 @@ export function getCIVariables(ciProviders: CIProvider[] = CI_PROVIDERS): Requir
   if (!provider) {
     throw new Error(`Unrecognized CI Provider.
   
-  You can read about the configuration options here:
-  https://github.com/Meemaw/bundlecheck#configuration`);
+  You can read about the supported CI providers here:
+  https://github.com/Meemaw/bundlecheck#ci-providers`);
   }
 
   return provider.configuration(process.env);
